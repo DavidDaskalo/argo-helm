@@ -632,9 +632,9 @@ redis:
     # readOnlyRootFilesystem: true
 
   # -- Redis pod-level security context
-  securityContext:
-    runAsNonRoot: true
-    runAsUser: 999
+  #securityContext:
+  #  runAsNonRoot: true
+  #  runAsUser: 999
 
   serviceAccount:
     # -- Create a service account for the redis pod
