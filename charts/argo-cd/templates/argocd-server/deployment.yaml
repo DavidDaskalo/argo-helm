@@ -67,7 +67,7 @@ spec:
         {{- . | toYaml | nindent 8 }}
         {{- end }}
         {{- if .Values.server.containerSecurityContext }}
-        - '--insecure'
+        - --insecure
         securityContext: {{- toYaml .Values.server.containerSecurityContext | nindent 10 }}
         {{- end }}
         {{- if or .Values.server.env .Values.externalRedis.password .Values.externalRedis.existingSecret }}
