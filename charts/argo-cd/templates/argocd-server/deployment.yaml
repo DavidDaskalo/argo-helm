@@ -44,6 +44,7 @@ spec:
         - argocd-server
         {{ if .Values.server.staticAssets.enabled }}
         - --staticassets
+        - '--insecure'
         - /shared/app
         {{ end }}
         - --repo-server
