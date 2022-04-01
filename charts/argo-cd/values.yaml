@@ -780,7 +780,7 @@ redis-ha:
 # External Redis parameters
 externalRedis:
   # -- External Redis server host
-  host: "argocd.apps.oc46-devel.cloudlet-dev.com"
+  host: ""
   # -- External Redis password
   password: ""
   # -- External Redis server port
@@ -1139,7 +1139,7 @@ server:
     # -- Openshift Route annotations
     annotations: {}
     # -- Hostname of OpenShift Route
-    hostname: ""
+    hostname: "argocd.apps.oc46-devel.cloudlet-dev.com"
     # -- Termination type of Openshift Route
     termination_type: edge
     # -- Termination policy of Openshift Route
