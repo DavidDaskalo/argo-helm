@@ -1139,7 +1139,7 @@ server:
     # -- Openshift Route annotations
     annotations: {}
     # -- Hostname of OpenShift Route
-    hostname: "argocd.apps.{{ template "cluster_name" . }}.{{ template "cluster_fqdn" . }}"
+    hostname: "argocd.apps."{{ template "cluster_name" . }}.{{ template "cluster_fqdn" . }}
     # -- Termination type of Openshift Route
     termination_type: edge
     # -- Termination policy of Openshift Route
