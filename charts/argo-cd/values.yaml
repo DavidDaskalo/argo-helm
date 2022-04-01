@@ -1871,7 +1871,7 @@ configs:
 
 openshift:
   # -- enables using arbitrary uid for argo repo server
-  enabled: false
+  enabled: true
 
 applicationSet:
   # -- Enable Application Set controller
