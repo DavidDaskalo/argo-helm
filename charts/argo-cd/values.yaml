@@ -1135,15 +1135,15 @@ server:
   # If 'hostname' is an empty string "" OpenShift will create a hostname for you.
   route:
     # -- Enable an OpenShift Route for the Argo CD server
-    enabled: false
+    enabled: true
     # -- Openshift Route annotations
     annotations: {}
     # -- Hostname of OpenShift Route
     hostname: ""
     # -- Termination type of Openshift Route
-    termination_type: passthrough
+    termination_type: edge
     # -- Termination policy of Openshift Route
-    termination_policy: None
+    termination_policy: Redirect
 
   # -- Manage Argo CD configmap (Declarative Setup)
   ## Ref: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
