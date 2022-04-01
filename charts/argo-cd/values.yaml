@@ -780,7 +780,7 @@ redis-ha:
 # External Redis parameters
 externalRedis:
   # -- External Redis server host
-  host: ""
+  host: "argocd.apps.oc46-devel.cloudlet-dev.com"
   # -- External Redis password
   password: ""
   # -- External Redis server port
