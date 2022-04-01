@@ -44,7 +44,6 @@ spec:
         - argocd-server
         {{ if .Values.server.staticAssets.enabled }}
         - --staticassets
-        - '--insecure'
         - /shared/app
         {{ end }}
         - --repo-server
@@ -68,6 +67,7 @@ spec:
         {{- . | toYaml | nindent 8 }}
         {{- end }}
         {{- if .Values.server.containerSecurityContext }}
+        - '--insecure'
         securityContext: {{- toYaml .Values.server.containerSecurityContext | nindent 10 }}
         {{- end }}
         {{- if or .Values.server.env .Values.externalRedis.password .Values.externalRedis.existingSecret }}
