@@ -1152,10 +1152,25 @@ server:
   # @default -- See [values.yaml]
   config:
     # Argo CD's externally facing base URL (optional). Required when configuring SSO
-    url: https://argocd.example.com
+    url: https://argocd.apps.oc46-devel.cloudlet-dev.com
     # Argo CD instance label key
     application.instanceLabelKey: argocd.argoproj.io/instance
-
+    
+    
+    dex.config: |
+      connectors:
+        # OpenShift
+        - type: openshift
+          id: openshift
+          name: OpenShift
+          config:
+            issuer: https://api.oc46-devel.cloudlet-dev.com:6443
+            clientID: system:serviceaccount:argocd-managed:argocd-dex-server
+            clientSecret: eyJhbGciOiJSUzI1NiIsImtpZCI6InQzUE5XTUZpZThuZ0M2ellOVmlCQ2tMRlozNU9HUzd2M0FtRjBwTUJMYVEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJhcmdvY2QtbWFuYWdlZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhcmdvY2QtZGV4LXNlcnZlci10b2tlbi1qeGw0ayIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJhcmdvY2QtZGV4LXNlcnZlciIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjZkMjRhN2U3LWExZjEtNDVjZS1hODIyLTY1N2JmYzdiOTUxMSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDphcmdvY2QtbWFuYWdlZDphcmdvY2QtZGV4LXNlcnZlciJ9.knv4byWV_H_UjWV9Jqg-zFKO96iSvPn9XpVj5XuR6Lv5aaTiaQbqc2iO6djAodqoMRanH5i39bFlN26j5bIAuWKlD7YcEUScfuPBAW2n-Xc_wolUs64KLT426vdFBVn77Z-ddpXFzMGVOWgWkybqQyctyr8f_y43eF50ISW1bqhkLBvwNTtdYgx05intJZym40jTRgTxO9pv9UjJYvTiLE3QTzG7DbwCinMGYfgi8bskqJ3MQ3G8_svVXVJK2lUsHKtN7vdGM_C2DFr76EkRkdfq9i8bLSdRg00CVq-jq5VHcgr2YdJgYk_IICnvMWeTu17L2P6Nw0MCelpPnj5BfQ
+            redirectURI: https://argocd.apps.oc46-devel.cloudlet-dev.com/api/dex/callback
+            insecureCA: true
+            groups:
+              - argocdadmins
     # DEPRECATED: Please instead use configs.credentialTemplates and configs.repositories
     # repositories: |
     #   - url: git@github.com:group/repo.git
